@@ -1,8 +1,12 @@
 const select = document.getElementById("select");
-select.addEventListener("click", getSelection);
+if (select) {
+    select.addEventListener("click", getSelection);
+}
 
 const input = document.getElementById("input");
-input.addEventListener("input", getFacts);
+if (input) {
+    input.addEventListener("input", getFacts);
+}
 
 function getSelection() {
     const info = document.getElementById("info");
@@ -22,8 +26,7 @@ function getFacts(e) {
         .then((response) => response.text())
         .then((data) => {
             const fact = document.getElementById("fact");
-            fact.innerHTML = "";
-            fact.innerHTML += `
+            fact.innerHTML = `
         <h2>${select.value} Fact</h2>
         <p>${data}</p>
         `;
